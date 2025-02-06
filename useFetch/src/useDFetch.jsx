@@ -18,3 +18,5 @@ export const useDFetch = (url)=>{
 
   return {data};
 }
+
+//function which do not return xml and have hook in it is custom hook
