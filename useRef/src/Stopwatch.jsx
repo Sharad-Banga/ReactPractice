@@ -1,28 +1,32 @@
-// better code
-import React, { useState, useRef } from 'react';
+import { useState,useRef } from "react"
 
-export function Stopwatch() {
-  const [time, setTime] = useState(0);
-  const intervalRef = useRef(null);
+export const Stopwatch =()=>{
+  
+  const timeRef = useRef(null);
 
-  const startTimer = () => {
-    if (intervalRef.current !== null) return; // Already running, do nothing
+  const [time , setTime] = useState(0);
 
-    intervalRef.current = setInterval(() => {
-      setTime((prevTime) => prevTime + 1);
-    }, 1000);
+  function startTimer(){
+    if (timeRef.current !== null) return;
+
+     timeRef.current= setInterval(()=>{
+      setTime(prev=>prev+1);
+    },1000);
   };
 
-  const stopTimer = () => {
-    clearInterval(intervalRef.current);
-    intervalRef.current = null;
-  };
+  function stopTimer(){
+    clearInterval(timeRef.current);
+    timeRef.current=null;
+  }
 
   return (
-    <div>
-      <h1>Timer: {time}</h1>
-      <button onClick={startTimer}>Start</button>
-      <button onClick={stopTimer}>Stop</button>
-    </div>
-  );
+    <>
+        <h3>time : {time}</h3>
+        <br />
+        <button onClick={startTimer}>start</button>
+        <br />
+        <br />
+        <button onClick={stopTimer}>stop</button>
+    </>
+  )
 }
