@@ -1,7 +1,5 @@
-import { useState } from 'react'
-import { Toggle } from './Toggle';
 import './App.css'
-import { PostComponent } from './PostComponent';
+import NetflixSeries from './NetflixSeries';
 
 
 
@@ -9,7 +7,7 @@ function App() {
 
   return(
     <>
-    <PostComponent/>
+    <NetflixSeries/>
     </>
   )
 }
